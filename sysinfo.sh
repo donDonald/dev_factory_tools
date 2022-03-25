@@ -17,4 +17,6 @@ echo "node:$(node -v)"
 echo "npm:$(npm -v)"
 echo "vagrant:$(vagrant -v)"
 echo "ansible:$(ansible --version)"
+echo "java:$(java --version)"
+echo "JAVA_HOME:$(echo $JAVA_HOME)"
 
