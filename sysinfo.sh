@@ -11,6 +11,8 @@ echo "model:$(cat /proc/cpuinfo | grep 'model name' | uniq | awk '{ print $4" "$
 echo "ram:$(free -ht | grep Mem | awk '{print $2;}')"
 echo "memory:$(free -ht | grep Total | awk '{print $2;}')"
 echo "sys:$(uname -a)"
+echo "gcc:$(gcc --version | head -n1)"
+echo "cmake:$(cmake --version | head -n1)"
 echo "docker:$(docker --version)"
 echo "docker-compose:$(docker-compose --version)"
 echo "node:$(node -v)"
