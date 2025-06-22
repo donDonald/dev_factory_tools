@@ -11,7 +11,8 @@ if [ "$INSTALLED" -gt "0" ]; then
 else
     # https://github.com/docker/compose/releases
     # https://docs.docker.com/compose/compose-file/compose-versioning/
-    COMPOSE_VERSION="1.25.5"
+    #COMPOSE_VERSION="1.25.5"
+    COMPOSE_VERSION="v2.37.2"
     LINK="https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)"
     echo "$C_LOG_PREFIX: Download link:$LINK"
 
