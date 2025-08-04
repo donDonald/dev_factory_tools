@@ -12,8 +12,10 @@ else
     LSB=$(lsb_release -cs)
     # https://docs.docker.com/develop/sdk/#api-version-matrix
     DOCKER_REPO="deb [arch=amd64] https://download.docker.com/linux/ubuntu $LSB stable"
-    DOCKER_VERSION="19.03.12" # For Ubuntu 20.04
     #DOCKER_VERSION="19.03.8" # For Ubuntu 18.04
+    #DOCKER_VERSION="19.03.12" # For Ubuntu 20.04
+    DOCKER_VERSION="27.3.1" # For Ubuntu 22.04
+    DOCKER_VERSION="28.3.3" # For Ubuntu 24.04
     # To check available versions
     #     $ apt-cache madison docker-ce
     #     $ apt-cache policy docker-ce
@@ -33,7 +35,7 @@ else
      && DOCKER_EXACT_VERSION=$(apt-cache madison docker-ce | grep $DOCKER_VERSION | awk '{print $3}') \
      && echo "$C_LOG_PREFIX: docker full version:$DOCKER_EXACT_VERSION" \
      && apt-cache policy docker-ce \
-     && apt install -y docker-ce="$DOCKER_EXACT_VERSION" containerd.io \
+     && apt install -y docker-ce="$DOCKER_EXACT_VERSION" docker-ce-cli="$DOCKER_EXACT_VERSION" containerd.io \
      && echo "$C_LOG_PREFIX: !!!!!! Adding user to docker group to avoid using sudo !!!!!!" \
      && usermod -aG docker "$WHOAMI" \
      && echo "$C_LOG_PREFIX: !!!!!! Gropus have changed, dont forget to logout-login !!!!!!"
